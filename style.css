@@ -217,6 +217,11 @@ body {
   font-size: 0.8em;
   opacity: 0.7;
   margin: 0 8px;
+  /* Override parent's -webkit-text-fill-color: transparent
+     which hides the & on mobile WebKit browsers */
+  -webkit-text-fill-color: var(--rose);
+  color: var(--rose);
+  display: inline-block;
 }
 
 /* ---------- Tagline Box ---------- */
