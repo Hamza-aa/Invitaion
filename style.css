@@ -101,38 +101,7 @@ body {
   pointer-events: none;
 }
 
-/* ---------- Corner Flowers ----------
-   Images sit on .page-wrapper (position:relative).
-   mix-blend-mode:multiply makes the white areas
-   of the image disappear against the page background.
------------------------------------------ */
-.corner-flower {
-  position: absolute;
-  z-index: 10;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-}
 
-.corner-top-right {
-  top: 0;
-  right: 0;
-  width: clamp(130px, 32vw, 210px);
-  transform-origin: top right;
-  animation: floatFlower 5s ease-in-out infinite;
-}
-
-.corner-bottom-left {
-  bottom: 0;
-  left: 0;
-  width: clamp(150px, 36vw, 240px);
-  transform-origin: bottom left;
-  animation: floatFlower 6s ease-in-out infinite reverse;
-}
-
-@keyframes floatFlower {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%       { transform: translateY(-8px) rotate(1.5deg); }
-}
 
 /* ---------- Card Content ---------- */
 .card-content {
