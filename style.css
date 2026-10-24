@@ -1,0 +1,556 @@
+/* =============================================
+   WEDDING INVITATION - ARABIC STYLE
+   Color palette: blush pinks, dusty rose, cream
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Scheherazade+New:wght@400;500;600;700&display=swap');
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --blush:        #f3d8df;
+  --rose:         #c2687e;
+  --rose-dark:    #8b3a52;
+  --rose-deep:    #6b2540;
+  --cream:        #fdf6f0;
+  --cream-warm:   #f9ede8;
+  --gold:         #c9996a;
+  --text-main:    #5a2234;
+  --text-light:   #a06070;
+  --shadow-rose:  rgba(139, 58, 82, 0.18);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  font-family: 'Scheherazade New', 'Amiri', serif;
+  background: radial-gradient(ellipse at top, #f9e4ec 0%, #fdf0f4 40%, #fef8f0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  direction: rtl;
+  /* Prevent text size inflation on iOS */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* ---------- Floating Petals ---------- */
+.petals-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -60px;
+  width: 14px;
+  height: 20px;
+  background: radial-gradient(ellipse at 40% 30%, #f3b8cb, #c97d95 80%);
+  border-radius: 50% 20% 50% 20%;
+  opacity: 0.55;
+  animation: petalFall linear infinite;
+}
+
+@keyframes petalFall {
+  0%   { transform: translateY(0)   rotate(0deg)   translateX(0);   opacity: 0.6; }
+  50%  { transform: translateY(50vh) rotate(180deg) translateX(30px); opacity: 0.4; }
+  100% { transform: translateY(110vh) rotate(360deg) translateX(-20px); opacity: 0; }
+}
+
+/* ---------- Page Wrapper ---------- */
+.page-wrapper {
+  position: relative;   /* anchor for flower images */
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+/* ---------- Card ---------- */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  background: linear-gradient(160deg, #fff8fb 0%, #fdf0f4 50%, #fff5ee 100%);
+  border-radius: 28px;
+  box-shadow:
+    0 0 0 1px rgba(194, 104, 126, 0.2),
+    0 4px 40px rgba(139, 58, 82, 0.12),
+    0 20px 80px rgba(139, 58, 82, 0.08);
+  padding: 60px 50px 50px;
+  border: 1.5px solid rgba(194, 104, 126, 0.25);
+}
+
+/* Card inner glow ring */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(194, 104, 126, 0.15);
+  border-radius: 22px;
+  pointer-events: none;
+}
+
+/* ---------- Corner Flowers ----------
+   Images sit on .page-wrapper (position:relative).
+   mix-blend-mode:multiply makes the white areas
+   of the image disappear against the page background.
+----------------------------------------- */
+.corner-flower {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.corner-top-right {
+  top: 0;
+  right: 0;
+  width: clamp(130px, 32vw, 210px);
+  transform-origin: top right;
+  animation: floatFlower 5s ease-in-out infinite;
+}
+
+.corner-bottom-left {
+  bottom: 0;
+  left: 0;
+  width: clamp(150px, 36vw, 240px);
+  transform-origin: bottom left;
+  animation: floatFlower 6s ease-in-out infinite reverse;
+}
+
+@keyframes floatFlower {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+/* ---------- Card Content ---------- */
+.card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  text-align: center;
+}
+
+/* ---------- Sections ---------- */
+.section { width: 100%; }
+
+/* ---------- Animate on load ---------- */
+.animate {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Bismillah ---------- */
+.bismillah-text {
+  font-family: 'Amiri', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--rose-deep);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  text-shadow: 0 1px 3px var(--shadow-rose);
+}
+
+/* ---------- Quranic Verse ---------- */
+.verse-section {
+  background: linear-gradient(135deg, rgba(243,216,223,0.3), rgba(249,237,232,0.4));
+  border-radius: 16px;
+  padding: 18px 22px;
+  border: 1px solid rgba(194,104,126,0.2);
+}
+
+.verse {
+  font-family: 'Amiri', serif;
+  font-size: 1.2rem;
+  color: var(--text-main);
+  line-height: 2.1;
+  font-style: italic;
+}
+
+/* ---------- Dividers ---------- */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 85%;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, transparent, var(--rose), transparent);
+}
+
+.divider-diamond {
+  color: var(--rose);
+  font-size: 0.85rem;
+  animation: spinDiamond 8s linear infinite;
+}
+
+@keyframes spinDiamond {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50%       { transform: rotate(180deg) scale(1.2); }
+}
+
+/* ---------- Invitation Text ---------- */
+.invite-body {
+  font-size: 1.25rem;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+/* ---------- Names ---------- */
+.names-section {
+  padding: 10px 0;
+}
+
+.names {
+  font-family: 'Amiri', serif;
+  font-size: clamp(2.4rem, 7vw, 3.4rem);
+  font-weight: 700;
+  color: var(--rose-deep);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  background: linear-gradient(135deg, var(--rose-deep) 0%, var(--rose) 50%, var(--rose-deep) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerNames 3s linear infinite;
+  text-shadow: none;
+}
+
+@keyframes shimmerNames {
+  0%   { background-position: 0%   center; }
+  100% { background-position: 200% center; }
+}
+
+.ampersand {
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin: 0 8px;
+}
+
+/* ---------- Tagline Box ---------- */
+.tagline-box {
+  border: 1.5px solid var(--rose);
+  border-radius: 40px;
+  padding: 12px 28px;
+  display: inline-block;
+  width: auto;
+  max-width: 90%;
+  margin: 0 auto;
+  background: rgba(243,216,223,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.tagline-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  transform: translateX(-100%);
+  animation: taglineShine 3.5s ease-in-out infinite;
+}
+
+@keyframes taglineShine {
+  0%   { transform: translateX(-100%); }
+  60%  { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+.tagline {
+  font-family: 'Amiri', serif;
+  font-size: 1.15rem;
+  color: var(--rose-dark);
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Details ---------- */
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, rgba(243,216,223,0.25), rgba(249,237,232,0.3));
+  border-radius: 14px;
+  border: 1px solid rgba(194,104,126,0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: default;
+}
+
+.detail-item:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 24px var(--shadow-rose);
+  background: linear-gradient(135deg, rgba(243,216,223,0.5), rgba(249,237,232,0.5));
+}
+
+.detail-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.15); }
+}
+
+.detail-text {
+  font-family: 'Scheherazade New', serif;
+  font-size: 1.18rem;
+  color: var(--text-main);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ---------- Countdown ---------- */
+.countdown-section { width: 100%; }
+
+.countdown-label {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(160deg, var(--rose-deep), var(--rose-dark));
+  color: #fff;
+  border-radius: 14px;
+  padding: 12px 18px;
+  min-width: 70px;
+  box-shadow: 0 4px 14px var(--shadow-rose);
+  transition: transform 0.2s ease;
+}
+
+.countdown-unit:hover { transform: scale(1.07); }
+
+.countdown-num {
+  font-family: 'Amiri', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.countdown-sub {
+  font-size: 0.72rem;
+  opacity: 0.85;
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+}
+
+.countdown-sep {
+  font-size: 1.8rem;
+  color: var(--rose-dark);
+  font-weight: 700;
+  margin-bottom: 14px;
+  animation: sepBlink 1s step-end infinite;
+}
+
+@keyframes sepBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+/* ==============================================
+   RESPONSIVE — Mobile-first phone optimisation
+   ============================================== */
+
+/* ---- Tablet and below (≤ 640px) ---- */
+@media (max-width: 640px) {
+  .page-wrapper {
+    padding: 24px 12px;
+    align-items: flex-start;
+  }
+
+  .card {
+    padding: 52px 20px 36px;
+    border-radius: 20px;
+  }
+
+  .card-content {
+    gap: 16px;
+  }
+
+  .bismillah-text {
+    font-size: 1.45rem;
+    line-height: 1.6;
+  }
+
+  .verse {
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+
+  .verse-section {
+    padding: 14px 14px;
+  }
+
+  .invite-body {
+    font-size: 1.1rem;
+  }
+
+  .names {
+    font-size: clamp(2rem, 11vw, 2.8rem);
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .tagline-box {
+    padding: 10px 18px;
+  }
+
+  .detail-item {
+    padding: 12px 14px;
+    gap: 10px;
+    justify-content: flex-start;
+    text-align: right;
+  }
+
+  .detail-text {
+    font-size: 1.05rem;
+  }
+
+  /* Countdown: 2x2 grid on small phones */
+  .countdown {
+    gap: 8px;
+  }
+
+  .countdown-unit {
+    min-width: 62px;
+    padding: 10px 10px;
+    border-radius: 12px;
+  }
+
+  .countdown-num {
+    font-size: 1.7rem;
+  }
+
+  .countdown-sub {
+    font-size: 0.68rem;
+  }
+
+  .countdown-sep {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+
+  .divider {
+    width: 90%;
+  }
+}
+
+/* ---- Small phones (≤ 400px) ---- */
+@media (max-width: 400px) {
+  .card {
+    padding: 48px 14px 32px;
+    border-radius: 16px;
+  }
+
+  .card-content {
+    gap: 14px;
+  }
+
+  .bismillah-text {
+    font-size: 1.25rem;
+  }
+
+  .verse {
+    font-size: 0.97rem;
+  }
+
+  .names {
+    font-size: clamp(1.8rem, 12vw, 2.4rem);
+  }
+
+  .tagline {
+    font-size: 0.93rem;
+  }
+
+  .detail-text {
+    font-size: 0.97rem;
+  }
+
+  .invite-body {
+    font-size: 1rem;
+  }
+
+  /* Stack countdown in 2 columns for very small screens */
+  .countdown {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto;
+    align-items: center;
+    justify-items: center;
+    gap: 6px;
+  }
+
+  .countdown-unit {
+    min-width: 56px;
+    padding: 8px 8px;
+  }
+
+  .countdown-num {
+    font-size: 1.5rem;
+  }
+
+  .countdown-sep {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+}
+
+/* ---- Touch: disable parallax hover effect on touch devices ---- */
+@media (hover: none) {
+  .detail-item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .countdown-unit:hover {
+    transform: none;
+  }
+}

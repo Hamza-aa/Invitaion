@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#f9e4ec" />
+  <title>دعوة زفاف - فاروق & ديمة</title>
+  <meta name="description" content="دعوة حضور خطوبة وعقد قران فاروق وديمة - يوم الجمعة 30-10-2026" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Scheherazade+New:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Floating petals background -->
+  <div class="petals-container" id="petals"></div>
+
+  <!-- Main card -->
+  <div class="page-wrapper">
+    <!-- Corner flowers sit on page-wrapper, overlapping card corners -->
+    <img src="floral_top_right_1792872229545.png" class="corner-flower corner-top-right" alt="" aria-hidden="true" />
+    <img src="floral_bottom_left_1792872238774.png" class="corner-flower corner-bottom-left" alt="" aria-hidden="true" />
+    <div class="card" id="card">
+
+      <!-- Corner flowers moved to page-wrapper -->
+
+      <!-- Inner content -->
+      <div class="card-content">
+
+        <!-- Bismillah -->
+        <div class="section bismillah animate" data-delay="0">
+          <p class="bismillah-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+        </div>
+
+        <!-- Quran verse -->
+        <div class="section verse-section animate" data-delay="200">
+          <p class="verse">
+            وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنفُسِكُمْ أَزْوَاجًا
+            <br />
+            لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً
+          </p>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider animate" data-delay="350">
+          <span class="divider-line"></span>
+          <span class="divider-diamond">❖</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <!-- Invitation text -->
+        <div class="section invite-text animate" data-delay="450">
+          <p class="invite-body">بمشيئة الله ندعوكم لحضور خطوبة وعقد قران</p>
+        </div>
+
+        <!-- Names -->
+        <div class="section names-section animate" data-delay="600">
+          <h1 class="names">فاروق <span class="ampersand">&amp;</span> ديمة</h1>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider animate" data-delay="750">
+          <span class="divider-line"></span>
+          <span class="divider-diamond">❖</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <!-- Tagline box -->
+        <div class="section tagline-box animate" data-delay="850">
+          <p class="tagline">في نهاية أكتوبر كُتبت لنا بداية السعادة</p>
+        </div>
+
+        <!-- Details -->
+        <div class="section details animate" data-delay="1000">
+
+          <div class="detail-item" id="detail-date">
+            <span class="detail-icon">📅</span>
+            <span class="detail-text">يوم الجمعة المصادف&nbsp; 30-10-2026</span>
+          </div>
+
+          <div class="detail-item" id="detail-time">
+            <span class="detail-icon">🕓</span>
+            <span class="detail-text">الساعة 4 ونصف عصراً</span>
+          </div>
+
+          <div class="detail-item" id="detail-location">
+            <span class="detail-icon">🏡</span>
+            <span class="detail-text">الموقع: الأعظمية شارع مسجد الأنبياء</span>
+          </div>
+
+        </div>
+
+        <!-- Footer divider -->
+        <div class="divider animate" data-delay="1200">
+          <span class="divider-line"></span>
+          <span class="divider-diamond">❖</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <!-- Countdown -->
+        <div class="section countdown-section animate" data-delay="1350">
+          <p class="countdown-label">العد التنازلي للفرح</p>
+          <div class="countdown" id="countdown">
+            <div class="countdown-unit">
+              <span class="countdown-num" id="cd-days">00</span>
+              <span class="countdown-sub">يوم</span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+              <span class="countdown-num" id="cd-hours">00</span>
+              <span class="countdown-sub">ساعة</span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+              <span class="countdown-num" id="cd-minutes">00</span>
+              <span class="countdown-sub">دقيقة</span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+              <span class="countdown-num" id="cd-seconds">00</span>
+              <span class="countdown-sub">ثانية</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /card-content -->
+    </div><!-- /card -->
+  </div><!-- /page-wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>
