@@ -190,15 +190,19 @@ body {
 /* ---------- Names ---------- */
 .names-section {
   padding: 10px 0;
+  width: 100%;
+  text-align: center;
 }
 
 .names {
-  font-family: 'Amiri', serif;
+  font-family: 'Reem Kufi Flash', 'Amiri', serif;
   font-size: clamp(2.4rem, 7vw, 3.4rem);
   font-weight: 700;
-  color: var(--rose-deep);
   letter-spacing: 0.04em;
-  line-height: 1.2;
+  line-height: 1.3;
+  text-align: center;
+  width: 100%;
+  display: block;
   background: linear-gradient(135deg, var(--rose-deep) 0%, var(--rose) 50%, var(--rose-deep) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
